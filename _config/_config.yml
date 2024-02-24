@@ -1,0 +1,17 @@
+---
+Name: featureflag
+After: 'rootroutes'
+---
+SilverStripe\Security\Member:
+  extensions:
+    - SilverStripe\FeatureFlag\Extension\MemberConfiguration
+
+---
+Name: featureflag_config
+After: 'featureflag'
+Only:
+  moduleexists: 'silverstripe/siteconfig'
+---
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SilverStripe\FeatureFlag\Extension\GlobalConfiguration
